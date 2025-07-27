@@ -265,6 +265,39 @@ We're hoping to work on these things for the next version:
 
 *(No promises on timeline though - we're still figuring v3 out! 😅)*
 
+## Adding Custom Commands 🛠️
+
+### Quick Start
+You can extend SuperClaude with your own custom slash commands! Here's how:
+
+1. **Create a markdown file** in `SuperClaude/Commands/custom/`
+2. **Add required metadata** (YAML frontmatter)
+3. **Run** `SuperClaude install` to register
+
+Example custom command:
+```markdown
+---
+allowed-tools: [Read, Grep, Glob]
+description: "Analyze and summarize folder contents"
+---
+
+# /sc:mysummary - Custom Folder Analyzer
+
+## Purpose
+Provide insights into folder structure and contents.
+
+## Usage
+```
+/sc:mysummary @folder
+```
+```
+
+That's it! Your command is now available in Claude Code. 
+
+📚 **For detailed instructions**, see:
+- [Custom Commands Developer Guide](Docs/custom-commands-guide.md)
+- [Command Format Specification](Docs/command-format-specification.md)
+
 ## Configuration ⚙️
 
 After installation, you can customize SuperClaude by editing:
@@ -316,24 +349,6 @@ The v3 architecture focuses on:
 - **Modularity** - Pick only the components you want
 - **Performance** - Faster operations with smarter caching
 
-We learned a lot from v2 and tried to address the main pain points.
-
-## FAQ 🙋
-
-**Q: Why was the hooks system removed?**  
-A: It was getting complex and buggy. We're redesigning it properly for v4.
-
-**Q: Does this work with other AI assistants?**  
-A: Currently Claude Code only, but v4 will have broader compatibility.
-
-**Q: Is this stable enough for daily use?**  
-A: The basic stuff works pretty well, but definitely expect some rough edges since it's a fresh release. Probably fine for experimenting! 🧪
-
-## SuperClaude Contributors
-
-[![Contributors](https://contrib.rocks/image?repo=hphuongdhsp/SuperClaude_Agents)](https://github.com/hphuongdhsp/SuperClaude_Agents/graphs/contributors)
-
-> **Note**: This project is a fork of the original [SuperClaude](https://github.com/NomenAK/SuperClaude) project.
 
 ## License
 
