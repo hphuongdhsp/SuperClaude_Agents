@@ -12,6 +12,9 @@ authors = [
     {name = "Mithun Gowda B", email = "contact@superclaude.dev"},
     {name = "NomenAK", email = "contact@superclaude.dev"},
 ]
+maintainers = [
+    {name = "hphuongdhsp"},
+]
 requires-python = ">=3.8"
 dependencies = [
     "setuptools>=45.0.0",
@@ -30,10 +33,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/NomenAK/SuperClaude"
-Repository = "https://github.com/NomenAK/SuperClaude"
-"Bug Tracker" = "https://github.com/NomenAK/SuperClaude/issues"
-"GitHub" = "https://github.com/NomenAK/SuperClaude"
+Homepage = "https://github.com/hphuongdhsp/SuperClaude_Agents"
+Repository = "https://github.com/hphuongdhsp/SuperClaude_Agents"
+"Bug Tracker" = "https://github.com/hphuongdhsp/SuperClaude_Agents/issues"
+"GitHub" = "https://github.com/hphuongdhsp/SuperClaude_Agents"
+"Original Project" = "https://github.com/NomenAK/SuperClaude"
 "Mithun Gowda B" = "https://github.com/mithun50"
 "NomenAK" = "https://github.com/NomenAK"
 

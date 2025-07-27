@@ -3,7 +3,8 @@
   "description": "Recommended installation with core framework and essential components",
   "components": [
     "core",
-    "commands"
+    "commands",
+    "agents"
   ],
   "features": {
     "auto_update": false,

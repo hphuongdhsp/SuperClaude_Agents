@@ -1,21 +1,19 @@
-# SuperClaude v3 🚀
-[![Website Preview](https://img.shields.io/badge/Visit-Website-blue?logo=google-chrome)](https://superclaude-org.github.io/SuperClaude_Website/)
+# SuperClaude v3 🚀 (Forked)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://img.shields.io/pypi/v/SuperClaude.svg)](https://pypi.org/project/SuperClaude/)
-[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/NomenAK/SuperClaude)
-[![GitHub issues](https://img.shields.io/github/issues/NomenAK/SuperClaude)](https://github.com/NomenAK/SuperClaude/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/NomenAK/SuperClaude/blob/master/CONTRIBUTING.md)
-[![Contributors](https://img.shields.io/github/contributors/NomenAK/SuperClaude)](https://github.com/NomenAK/SuperClaude/graphs/contributors)
-[![Website](https://img.shields.io/website?url=https://superclaude-org.github.io/SuperClaude_Website/)](https://superclaude-org.github.io/SuperClaude_Website/)
+[![Version](https://img.shields.io/badge/version-3.0.0--fork-blue.svg)](https://github.com/hphuongdhsp/SuperClaude_Agents)
+[![GitHub issues](https://img.shields.io/github/issues/hphuongdhsp/SuperClaude_Agents)](https://github.com/hphuongdhsp/SuperClaude_Agents/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/CONTRIBUTING.md)
+[![Contributors](https://img.shields.io/github/contributors/hphuongdhsp/SuperClaude_Agents)](https://github.com/hphuongdhsp/SuperClaude_Agents/graphs/contributors)
 
 A framework that extends Claude Code with specialized commands, personas, and MCP server integration.
 
-**📢 Status**: Initial release, fresh out of beta! Bugs may occur as we continue improving things.
+**📢 Status**: This is a fork of the original SuperClaude v3 project. The original repository is no longer maintained. This fork aims to continue development and provide installation from source.
 
 ## What is SuperClaude? 🤔
 
 SuperClaude tries to make Claude Code more helpful for development work by adding:
 - 🛠️ **16 specialized commands** for common dev tasks (some work better than others!)
+- 🤖 **35 AI agents** with specialized expertise (code review, architecture, testing, etc.)
 - 🎭 **Smart personas** that usually pick the right expert for different domains 
 - 🔧 **MCP server integration** for docs, UI components, and browser automation
 - 📋 **Task management** that tries to keep track of progress
@@ -29,6 +27,7 @@ This is what we've been building to make development workflows smoother. Still r
 - Installation suite (rewritten from the ground up)
 - Core framework with 9 documentation files 
 - 16 slash commands for various development tasks
+- 35 specialized AI agents for domain-specific assistance
 - MCP server integration (Context7, Sequential, Magic, Playwright)
 - Unified CLI installer for easy setup
 
@@ -59,6 +58,16 @@ AI specialists that try to jump in when they seem relevant:
 - *...and 5 more specialists*
 
 *(They don't always pick perfectly, but usually get it right!)*
+
+### AI Agents 🤖
+35 specialized agents for specific tasks and domains:
+- **Development**: `ai-engineer`, `backend-architect`, `frontend-developer`, `golang-pro`, `python-pro`
+- **Code Quality**: `code-reviewer`, `code-refactorer`, `debugger`, `test-automator`
+- **Infrastructure**: `cloud-architect`, `deployment-engineer`, `devops-troubleshooter`
+- **Specialized**: `data-scientist`, `ml-engineer`, `security-auditor`, `performance-engineer`
+- **Documentation**: `api-documenter`, `content-writer`, `prompt-engineer`
+
+Each agent has unique expertise, tool preferences, and approaches. See [Docs/agents-guide.md](Docs/agents-guide.md) for details.
 
 ### MCP Integration 🔧
 External tools that connect when useful:
@@ -98,17 +107,14 @@ SuperClaude installation is a **two-step process**:
 
 ### Step 1: Install the Package
 
-**Option A: From PyPI (Recommended)**
+**Install from Source (This Repository)**
 ```bash
-uv add SuperClaude
-```
-
-**Option B: From Source**
-```bash
-git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
-cd SuperClaude
+git clone https://github.com/hphuongdhsp/SuperClaude_Agents.git
+cd SuperClaude_Agents
 uv sync
 ```
+
+> **Note**: PyPI installation is not available for this fork. Please install from source using the instructions above.
 ### 🔧 UV / UVX Setup Guide
 
 SuperClaude v3 also supports installation via [`uv`](https://github.com/astral-sh/uv) (a faster, modern Python package manager) or `uvx` for cross-platform usage.
@@ -126,9 +132,11 @@ curl -Ls https://astral.sh/uv/install.sh | sh
 Once `uv` is available, you can install SuperClaude like this:
 
 ```bash
+# After cloning the repository:
+cd SuperClaude_Agents
 uv venv
 source .venv/bin/activate
-uv pip install SuperClaude
+uv sync
 ```
 
 ### ⚡ Install with `uvx` (Cross-platform CLI)
@@ -136,7 +144,10 @@ uv pip install SuperClaude
 If you’re using `uvx`, just run:
 
 ```bash
-uvx pip install SuperClaude
+# Clone and install from source:
+git clone https://github.com/hphuongdhsp/SuperClaude_Agents.git
+cd SuperClaude_Agents
+uvx run uv sync
 ```
 
 ### ✅ Finish Installation
@@ -157,6 +168,7 @@ SuperClaude install
 
 * `uv` provides better caching and performance.
 * Compatible with Python 3.8+ and works smoothly with SuperClaude.
+* This fork requires installation from source - PyPI packages are not available.
 
 ---
 **Missing Python?** Install Python 3.7+ first:
@@ -265,11 +277,11 @@ Most users probably won't need to change anything - it usually works okay out of
 
 Want to learn more? Check out our guides:
 
-- 📚 [**User Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/superclaude-user-guide.md) - Complete overview and getting started
-- 🛠️ [**Commands Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/commands-guide.md) - All 16 slash commands explained  
-- 🏳️ [**Flags Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/flags-guide.md) - Command flags and options
-- 🎭 [**Personas Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/personas-guide.md) - Understanding the persona system
-- 📦 [**Installation Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/installation-guide.md) - Detailed installation instructions
+- 📚 [**User Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/superclaude-user-guide.md) - Complete overview and getting started
+- 🛠️ [**Commands Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/commands-guide.md) - All 16 slash commands explained  
+- 🏳️ [**Flags Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/flags-guide.md) - Command flags and options
+- 🎭 [**Personas Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/personas-guide.md) - Understanding the persona system
+- 📦 [**Installation Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/installation-guide.md) - Detailed installation instructions
 
 These guides have more details than this README and are kept up to date.
 
@@ -319,7 +331,9 @@ A: The basic stuff works pretty well, but definitely expect some rough edges sin
 
 ## SuperClaude Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=NomenAk/SuperClaude)](https://github.com/NomenAK/SuperClaude/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=hphuongdhsp/SuperClaude_Agents)](https://github.com/hphuongdhsp/SuperClaude_Agents/graphs/contributors)
+
+> **Note**: This project is a fork of the original [SuperClaude](https://github.com/NomenAK/SuperClaude) project.
 
 ## License
 
@@ -327,11 +341,11 @@ MIT - [See LICENSE file for details](https://opensource.org/licenses/MIT)
 
 ## Star History
 
-<a href="https://www.star-history.com/#NomenAK/SuperClaude&Date">
+<a href="https://www.star-history.com/#hphuongdhsp/SuperClaude_Agents&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hphuongdhsp/SuperClaude_Agents&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hphuongdhsp/SuperClaude_Agents&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hphuongdhsp/SuperClaude_Agents&type=Date" />
  </picture>
 </a>
 ---

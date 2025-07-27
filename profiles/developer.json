@@ -4,7 +4,8 @@
   "components": [
     "core",
     "commands",
-    "mcp"
+    "mcp",
+    "agents"
   ],
   "features": {
     "auto_update": false,

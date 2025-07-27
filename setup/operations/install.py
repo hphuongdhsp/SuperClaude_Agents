@@ -138,7 +138,7 @@ def get_components_to_install(args: argparse.Namespace, registry: ComponentRegis
     # Explicit components specified
     if args.components:
         if 'all' in args.components:
-            return ["core", "commands", "hooks", "mcp"]
+            return ["core", "commands", "hooks", "mcp", "agents"]
         return args.components
     
     # Profile-based selection

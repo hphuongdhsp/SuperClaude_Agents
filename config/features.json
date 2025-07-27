@@ -35,6 +35,15 @@
       "dependencies": ["core"],
       "enabled": false,
       "required_tools": []
+    },
+    "agents": {
+      "name": "agents",
+      "version": "1.0.0",
+      "description": "Claude Code agent collection for specialized AI behaviors",
+      "category": "extensions",
+      "dependencies": ["core"],
+      "enabled": true,
+      "required_tools": []
     }
   }
 }
