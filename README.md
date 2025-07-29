@@ -7,6 +7,8 @@
 
 A framework that extends Claude Code with specialized commands, personas, and MCP server integration.
 
+**🌏 Languages**: [English](README.md) | [Tiếng Việt](README_vi.md)
+
 **📢 Status**: This is a fork of the original SuperClaude v3 project. This fork aims to continue development and provide installation from source.
 
 ## What is SuperClaude? 🤔
@@ -105,140 +107,252 @@ SuperClaude installation is a **two-step process**:
 1. First install the Python package
 2. Then run the installer to set up Claude Code integration
 
-### Step 1: Install the Package
+Choose your operating system below for detailed step-by-step instructions:
 
-**Install from Source (This Repository)**
+## 🍎 Installation for Mac Users
+
+### Prerequisites
+First, let's make sure you have everything you need:
+
+**Step 1: Install Homebrew (if you don't have it)**
+1. Open Terminal (press `Cmd + Space`, type "Terminal", and press Enter)
+2. Copy and paste this command:
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+3. Press Enter and follow the prompts
+4. When finished, restart Terminal
+
+**Step 2: Install Python 3**
+1. In Terminal, run:
+   ```bash
+   brew install python3
+   ```
+2. Verify Python is installed:
+   ```bash
+   python3 --version
+   ```
+   You should see something like "Python 3.11.x" or higher
+
+**Step 3: Install Git (if you don't have it)**
 ```bash
-git clone https://github.com/hphuongdhsp/SuperClaude_Agents.git
-cd SuperClaude_Agents
+brew install git
+```
+
+### Installation Process
+
+**Step 4: Download SuperClaude**
+1. In Terminal, navigate to where you want to install SuperClaude (e.g., your home folder):
+   ```bash
+   cd ~
+   ```
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/hphuongdhsp/SuperClaude_Agents.git
+   ```
+3. Enter the SuperClaude directory:
+   ```bash
+   cd SuperClaude_Agents
+   ```
+
+**Step 5: Install UV (recommended package manager)**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+Then restart your terminal or run:
+```bash
+source ~/.bashrc
+```
+
+**Step 6: Install SuperClaude**
+```bash
 uv sync
 ```
 
-> **Note**: PyPI installation is not available for this fork. Please install from source using the instructions above.
-### 🔧 UV / UVX Setup Guide
-
-SuperClaude v3 also supports installation via [`uv`](https://github.com/astral-sh/uv) (a faster, modern Python package manager) or `uvx` for cross-platform usage.
-
-### 🌀 Install with `uv`
-
-Make sure `uv` is installed:
-
+**Step 7: Run the SuperClaude installer**
 ```bash
-curl -Ls https://astral.sh/uv/install.sh | sh
+python3 -m SuperClaude install
 ```
 
-> Or follow instructions from: [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)
+**That's it! 🎉** SuperClaude is now installed and ready to use with Claude Code.
 
-Once `uv` is available, you can install SuperClaude like this:
+---
+
+## 🐧 Installation for Ubuntu Users
+
+### Prerequisites
+First, let's make sure your system is up to date and has everything needed:
+
+**Step 1: Update your system**
+1. Open Terminal (press `Ctrl + Alt + T`)
+2. Update package lists:
+   ```bash
+   sudo apt update
+   ```
+3. Upgrade installed packages:
+   ```bash
+   sudo apt upgrade -y
+   ```
+
+**Step 2: Install Python 3 and pip**
+```bash
+sudo apt install python3 python3-pip python3-venv git curl -y
+```
+
+**Step 3: Verify Python installation**
+```bash
+python3 --version
+```
+You should see something like "Python 3.8.x" or higher
+
+### Installation Process
+
+**Step 4: Download SuperClaude**
+1. Navigate to your home directory:
+   ```bash
+   cd ~
+   ```
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/hphuongdhsp/SuperClaude_Agents.git
+   ```
+3. Enter the SuperClaude directory:
+   ```bash
+   cd SuperClaude_Agents
+   ```
+
+**Step 5: Install UV (recommended package manager)**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+Then reload your shell configuration:
+```bash
+source ~/.bashrc
+```
+Or restart your terminal.
+
+**Step 6: Install SuperClaude**
+```bash
+uv sync
+```
+
+**Step 7: Run the SuperClaude installer**
+```bash
+python3 -m SuperClaude install
+```
+
+**That's it! 🎉** SuperClaude is now installed and ready to use with Claude Code.
+
+---
+
+## 🔄 Alternative Installation Methods
+
+### Using UV (Advanced Users)
+If you prefer using `uv` directly for better performance:
 
 ```bash
 # After cloning the repository:
 cd SuperClaude_Agents
 uv venv
-source .venv/bin/activate
+source .venv/bin/activate  # On Mac/Linux
 uv sync
 ```
 
-### ⚡ Install with `uvx` (Cross-platform CLI)
-
-If you’re using `uvx`, just run:
-
+### Using UVX (Cross-platform)
 ```bash
-# Clone and install from source:
 git clone https://github.com/hphuongdhsp/SuperClaude_Agents.git
 cd SuperClaude_Agents
 uvx run uv sync
 ```
 
-### ✅ Finish Installation
+---
 
-After installing, continue with the usual installer step:
+## 📋 Installation Verification
 
-```bash
-python3 -m SuperClaude install
-```
+After installation, verify everything works:
 
-Or using bash-style CLI:
+1. **Check if SuperClaude is installed:**
+   ```bash
+   python3 -m SuperClaude --help
+   ```
 
-```bash
-SuperClaude install
-```
+2. **Test a basic command:**
+   ```bash
+   SuperClaude install --help
+   ```
 
-### 🧠 Note:
-
-* `uv` provides better caching and performance.
-* Compatible with Python 3.8+ and works smoothly with SuperClaude.
-* This fork requires installation from source - PyPI packages are not available.
+If you see help information, congratulations! SuperClaude is properly installed.
 
 ---
-**Missing Python?** Install Python 3.7+ first:
+
+## 🚨 Troubleshooting Common Issues
+
+**Problem: "command not found: python3"**
+- **Mac**: Install Python with `brew install python3`
+- **Ubuntu**: Install with `sudo apt install python3`
+
+**Problem: "command not found: git"**
+- **Mac**: Install with `brew install git`
+- **Ubuntu**: Install with `sudo apt install git`
+
+**Problem: "Permission denied" errors**
+- Never use `sudo` with SuperClaude installation
+- Make sure you're installing in your home directory
+
+**Problem: "uv: command not found"**
+- The uv installer script may need you to restart your terminal
+- Or manually source your shell config: `source ~/.bashrc`
+
+**Need more help?** Open an issue on our [GitHub page](https://github.com/hphuongdhsp/SuperClaude_Agents/issues).
+
+## ⚙️ Installer Options
+
+After following the platform-specific installation steps above, you can customize your SuperClaude installation with these options:
+
+### Installation Profiles
+
+**Quick Setup (Recommended for most users)**
 ```bash
-# Linux (Ubuntu/Debian)
-sudo apt update && sudo apt install python3 python3-pip
-
-# macOS  
-brew install python3
-
-# Windows
-# Download from https://python.org/downloads/
-```
-
-### Step 2: Run the Installer
-
-After installing the package, run the SuperClaude installer to configure Claude Code (You can use any of the method):
-### ⚠️ Important Note 
-**After installing the SuperClaude.**
-**You can use `SuperClaude commands`
-, `python3 -m SuperClaude commands` or also `python3 SuperClaude commands`**
-```bash
-# Quick setup (recommended for most users)
-python3 SuperClaude install
-
-# Interactive selection (choose components)
-python3 SuperClaude install --interactive
-
-# Minimal install (just core framework)
-python3 SuperClaude install --minimal
-
-# Developer setup (everything included)
-python3 SuperClaude install --profile developer
-
-# See all available options
-python3 SuperClaude install --help
-```
-### Or Python Modular Usage
-```bash
-# Quick setup (recommended for most users)
 python3 -m SuperClaude install
-
-# Interactive selection (choose components)
-python3 -m SuperClaude install --interactive
-
-# Minimal install (just core framework)
-python3 -m SuperClaude install --minimal
-
-# Developer setup (everything included)
-python3 -m SuperClaude install --profile developer
-
-# See all available options
-python3 -m SuperClaude install --help
 ```
-### Simple bash Command Usage 
+
+**Interactive Selection (Choose components)**
 ```bash
-# Quick setup (recommended for most users)
-SuperClaude install
+python3 -m SuperClaude install --interactive
+```
 
-# Interactive selection (choose components)
-SuperClaude install --interactive
+**Minimal Installation (Just core framework)**
+```bash
+python3 -m SuperClaude install --minimal
+```
 
-# Minimal install (just core framework)
-SuperClaude install --minimal
+**Developer Setup (Everything included)**
+```bash
+python3 -m SuperClaude install --profile developer
+```
 
-# Developer setup (everything included)
-SuperClaude install --profile developer
+### Alternative Command Formats
 
-# See all available options
-SuperClaude install --help
+You can also use these equivalent formats:
+
+**Python Module Style:**
+```bash
+python3 -m SuperClaude install [options]
+```
+
+**Direct Python Execution:**
+```bash
+python3 SuperClaude install [options]
+```
+
+**Simple Bash Command (if available in PATH):**
+```bash
+SuperClaude install [options]
+```
+
+### Get Help
+```bash
+python3 -m SuperClaude install --help
 ```
 
 **That's it! 🎉** The installer handles everything: framework files, MCP servers, and Claude Code configuration.
