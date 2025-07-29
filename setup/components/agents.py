@@ -89,7 +89,11 @@ class AgentsComponent(Component):
         else:
             self.logger.success(f"Successfully installed {installed_count} agents")
         
-        return installed_count > 0
+        # Only proceed with post-install if we installed at least one agent
+        if installed_count > 0:
+            return self._post_install()
+        else:
+            return False
     
     def _post_install(self):
         """Post-installation tasks"""
@@ -306,31 +310,88 @@ class AgentsComponent(Component):
             # Parse YAML frontmatter
             frontmatter_text = match.group(1)
             
-            if yaml:
-                frontmatter = yaml.safe_load(frontmatter_text)
-            else:
-                # Simple parsing fallback
+            try:
+                if yaml:
+                    # For complex multi-line descriptions, we need to handle YAML parsing errors
+                    frontmatter = yaml.safe_load(frontmatter_text)
+                else:
+                    # Simple parsing fallback - enhanced to handle multi-line values better
+                    frontmatter = {}
+                    lines = frontmatter_text.strip().split('\n')
+                    current_key = None
+                    current_value = []
+                    
+                    for line in lines:
+                        # Check if this is a new key at the root level (no indentation)
+                        if ':' in line and not line.startswith(' ') and not line.startswith('\t'):
+                            # Special handling for fields that commonly appear in multi-line content
+                            if any(field in line for field in ['tools:', 'color:', 'examples:']):
+                                # Save previous key-value pair
+                                if current_key:
+                                    value = '\n'.join(current_value).strip()
+                                    # Remove surrounding quotes if present
+                                    if value.startswith('"') and value.endswith('"'):
+                                        value = value[1:-1]
+                                    elif value.startswith("'") and value.endswith("'"):
+                                        value = value[1:-1]
+                                    frontmatter[current_key] = value
+                                # Start new key-value pair
+                                key, value = line.split(':', 1)
+                                current_key = key.strip()
+                                current_value = [value.strip()] if value.strip() else []
+                            # Check if line is actually a key (not part of multi-line content)
+                            elif current_key and current_key == 'description':
+                                # This might be part of the description content
+                                current_value.append(line)
+                            else:
+                                # Save previous key-value pair
+                                if current_key:
+                                    value = '\n'.join(current_value).strip()
+                                    # Remove surrounding quotes if present
+                                    if value.startswith('"') and value.endswith('"'):
+                                        value = value[1:-1]
+                                    elif value.startswith("'") and value.endswith("'"):
+                                        value = value[1:-1]
+                                    frontmatter[current_key] = value
+                                # Start new key-value pair
+                                key, value = line.split(':', 1)
+                                current_key = key.strip()
+                                current_value = [value.strip()] if value.strip() else []
+                        elif current_key:
+                            # Continuation of multiline value
+                            current_value.append(line)
+                    
+                    # Save last key-value pair
+                    if current_key:
+                        value = '\n'.join(current_value).strip()
+                        # Remove surrounding quotes if present
+                        if value.startswith('"') and value.endswith('"'):
+                            value = value[1:-1]
+                        elif value.startswith("'") and value.endswith("'"):
+                            value = value[1:-1]
+                        frontmatter[current_key] = value
+            except yaml.YAMLError as e:
+                # If YAML parsing fails, try simple parsing to at least check required fields
+                self.logger.debug(f"YAML parsing failed for {file_path.name}, trying simple parsing: {e}")
                 frontmatter = {}
-                lines = frontmatter_text.strip().split('\n')
-                current_key = None
-                current_value = []
+                # Simple regex-based parsing for basic fields
+                name_match = re.search(r'^name:\s*(.+)$', frontmatter_text, re.MULTILINE)
+                desc_match = re.search(r'^description:\s*(.+)', frontmatter_text, re.MULTILINE)
                 
-                for line in lines:
-                    if ':' in line and not line.startswith(' ') and not line.startswith('\t'):
-                        # Save previous key-value pair
-                        if current_key:
-                            frontmatter[current_key] = ' '.join(current_value).strip().strip('"\'')
-                        # Start new key-value pair
-                        key, value = line.split(':', 1)
-                        current_key = key.strip()
-                        current_value = [value.strip()]
-                    elif current_key:
-                        # Continuation of multiline value
-                        current_value.append(line.strip())
-                
-                # Save last key-value pair
-                if current_key:
-                    frontmatter[current_key] = ' '.join(current_value).strip().strip('"\'')
+                if name_match:
+                    frontmatter['name'] = name_match.group(1).strip()
+                if desc_match:
+                    # For description, capture everything until we hit another field or end
+                    desc_start = desc_match.start()
+                    # Find the next field (tools:, color:, etc.) or end of frontmatter
+                    next_field = re.search(r'^(tools|color|examples):', frontmatter_text[desc_start:], re.MULTILINE)
+                    if next_field:
+                        desc_end = desc_start + next_field.start()
+                        frontmatter['description'] = frontmatter_text[desc_start:desc_end].strip()
+                    else:
+                        frontmatter['description'] = frontmatter_text[desc_start:].strip()
+                    # Clean up the description
+                    frontmatter['description'] = re.sub(r'^description:\s*', '', frontmatter['description'])
             
             # Validate required fields
             required_fields = ['name', 'description']
@@ -357,31 +418,22 @@ class AgentsComponent(Component):
                     match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
                     if match:
                         frontmatter_text = match.group(1)
-                        if yaml:
-                            frontmatter = yaml.safe_load(frontmatter_text)
-                        else:
-                            # Simple parsing fallback
+                        try:
+                            if yaml:
+                                frontmatter = yaml.safe_load(frontmatter_text)
+                            else:
+                                # Use simple regex parsing as fallback
+                                frontmatter = {}
+                                name_match = re.search(r'^name:\s*(.+)$', frontmatter_text, re.MULTILINE)
+                                if name_match:
+                                    frontmatter['name'] = name_match.group(1).strip()
+                        except yaml.YAMLError:
+                            # Use simple regex parsing for name field
                             frontmatter = {}
-                            lines = frontmatter_text.strip().split('\n')
-                            current_key = None
-                            current_value = []
-                            
-                            for line in lines:
-                                if ':' in line and not line.startswith(' ') and not line.startswith('\t'):
-                                    # Save previous key-value pair
-                                    if current_key:
-                                        frontmatter[current_key] = ' '.join(current_value).strip().strip('"\'')
-                                    # Start new key-value pair
-                                    key, value = line.split(':', 1)
-                                    current_key = key.strip()
-                                    current_value = [value.strip()]
-                                elif current_key:
-                                    # Continuation of multiline value
-                                    current_value.append(line.strip())
-                            
-                            # Save last key-value pair
-                            if current_key:
-                                frontmatter[current_key] = ' '.join(current_value).strip().strip('"\'')
+                            name_match = re.search(r'^name:\s*(.+)$', frontmatter_text, re.MULTILINE)
+                            if name_match:
+                                frontmatter['name'] = name_match.group(1).strip()
+                        
                         if 'name' in frontmatter:
                             agent_names.append(frontmatter['name'])
                 except Exception:
@@ -401,19 +453,43 @@ class AgentsComponent(Component):
                     match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
                     if match:
                         frontmatter_text = match.group(1)
-                        if yaml:
-                            frontmatter = yaml.safe_load(frontmatter_text)
-                        else:
-                            # Simple parsing fallback
+                        try:
+                            if yaml:
+                                frontmatter = yaml.safe_load(frontmatter_text)
+                            else:
+                                # Use simple regex parsing as fallback
+                                frontmatter = {}
+                                name_match = re.search(r'^name:\s*(.+)$', frontmatter_text, re.MULTILINE)
+                                desc_match = re.search(r'^description:\s*(.+)', frontmatter_text, re.MULTILINE)
+                                if name_match:
+                                    frontmatter['name'] = name_match.group(1).strip()
+                                if desc_match:
+                                    # Get first line of description for summary
+                                    frontmatter['description'] = desc_match.group(1).strip()
+                        except yaml.YAMLError:
+                            # Use simple regex parsing for required fields
                             frontmatter = {}
-                            for line in frontmatter_text.split('\n'):
-                                if ':' in line:
-                                    key, value = line.split(':', 1)
-                                    frontmatter[key.strip()] = value.strip().strip('"\'')
+                            name_match = re.search(r'^name:\s*(.+)$', frontmatter_text, re.MULTILINE)
+                            desc_match = re.search(r'^description:\s*(.+)', frontmatter_text, re.MULTILINE)
+                            if name_match:
+                                frontmatter['name'] = name_match.group(1).strip()
+                            if desc_match:
+                                # Get first line of description for summary
+                                frontmatter['description'] = desc_match.group(1).strip()
+                        
                         if 'name' in frontmatter and 'description' in frontmatter:
+                            # Clean up description if it's multi-line - just get first meaningful part
+                            desc = str(frontmatter['description'])
+                            # If description starts with a quote, find the matching end quote
+                            if desc.startswith('"') or desc.startswith("'"):
+                                desc = desc[1:]
+                                if desc.endswith('"') or desc.endswith("'"):
+                                    desc = desc[:-1]
+                            # Take first sentence or line
+                            desc = desc.split('\n')[0].split('. ')[0]
                             agents_info.append({
                                 'name': frontmatter['name'],
-                                'description': frontmatter['description']
+                                'description': desc
                             })
                 except Exception:
                     pass  # Skip invalid files
