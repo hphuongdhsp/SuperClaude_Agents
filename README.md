@@ -7,7 +7,7 @@
 
 A framework that extends Claude Code with specialized commands, personas, and MCP server integration.
 
-**📢 Status**: This is a fork of the original SuperClaude v3 project. The original repository is no longer maintained. This fork aims to continue development and provide installation from source.
+**📢 Status**: This is a fork of the original SuperClaude v3 project. This fork aims to continue development and provide installation from source.
 
 ## What is SuperClaude? 🤔
 
