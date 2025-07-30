@@ -14,9 +14,9 @@ A framework that extends Claude Code with specialized commands, personas, and MC
 ## What is SuperClaude? 🤔
 
 SuperClaude tries to make Claude Code more helpful for development work by adding:
-- 🛠️ **16 specialized commands** for common dev tasks (some work better than others!)
+- 🛠️ **17 specialized commands** for common dev tasks (some work better than others!)
 - 🤖 **35 AI agents** with specialized expertise (code review, architecture, testing, etc.)
-- 🎭 **Smart personas** that usually pick the right expert for different domains 
+- 🎭 **Smart personas** that usually pick the right expert for different domains
 - 🔧 **MCP server integration** for docs, UI components, and browser automation
 - 📋 **Task management** that tries to keep track of progress
 - ⚡ **Token optimization** to help with longer conversations
@@ -27,8 +27,8 @@ This is what we've been building to make development workflows smoother. Still r
 
 ✅ **What's Working Well:**
 - Installation suite (rewritten from the ground up)
-- Core framework with 9 documentation files 
-- 16 slash commands for various development tasks
+- Core framework with 9 documentation files
+- 17 slash commands for various development tasks
 - 35 specialized AI agents for domain-specific assistance
 - MCP server integration (Context7, Sequential, Magic, Playwright)
 - Unified CLI installer for easy setup
@@ -42,17 +42,17 @@ This is what we've been building to make development workflows smoother. Still r
 ## Key Features ✨
 
 ### Commands 🛠️
-We focused on 16 essential commands for the most common tasks:
+We focused on 17 essential commands for the most common tasks:
 
-**Development**: `/sc:implement`, `/sc:build`, `/sc:design`  
-**Analysis**: `/sc:analyze`, `/sc:troubleshoot`, `/sc:explain`  
-**Quality**: `/sc:improve`, `/sc:test`, `/sc:cleanup`  
-**Others**: `/sc:document`, `/sc:git`, `/sc:estimate`, `/sc:task`, `/sc:index`, `/sc:load`, `/sc:spawn`
+**Development**: `/sc:implement`, `/sc:build`, `/sc:design`
+**Analysis**: `/sc:analyze`, `/sc:troubleshoot`, `/sc:explain`
+**Quality**: `/sc:improve`, `/sc:test`, `/sc:cleanup`
+**Others**: `/sc:document`, `/sc:git`, `/sc:estimate`, `/sc:task`, `/sc:todo`, `/sc:index`, `/sc:load`, `/sc:spawn`
 
 ### Smart Personas 🎭
 AI specialists that try to jump in when they seem relevant:
 - 🏗️ **architect** - Systems design and architecture stuff
-- 🎨 **frontend** - UI/UX and accessibility  
+- 🎨 **frontend** - UI/UX and accessibility
 - ⚙️ **backend** - APIs and infrastructure
 - 🔍 **analyzer** - Debugging and figuring things out
 - 🛡️ **security** - Security concerns and vulnerabilities
@@ -73,9 +73,9 @@ Each agent has unique expertise, tool preferences, and approaches. See [Docs/age
 
 ### MCP Integration 🔧
 External tools that connect when useful:
-- **Context7** - Grabs official library docs and patterns 
-- **Sequential** - Helps with complex multi-step thinking  
-- **Magic** - Generates modern UI components 
+- **Context7** - Grabs official library docs and patterns
+- **Sequential** - Helps with complex multi-step thinking
+- **Magic** - Generates modern UI components
 - **Playwright** - Browser automation and testing stuff
 
 *(These work pretty well when they connect properly! 🤞)*
@@ -88,7 +88,7 @@ If you're coming from SuperClaude v2, you'll need to clean up first:
 2. **Manual cleanup** - delete these if they exist:
    - `SuperClaude/`
    - `~/.claude/shared/`
-   - `~/.claude/commands/` 
+   - `~/.claude/commands/`
    - `~/.claude/CLAUDE.md`
 4. **Then proceed** with v3 installation below
 
@@ -96,7 +96,7 @@ This is because v3 has a different structure and the old files can cause conflic
 
 ### 🔄 **Key Change for v2 Users**
 **The `/build` command changed!** In v2, `/build` was used for feature implementation. In v3:
-- `/sc:build` = compilation/packaging only 
+- `/sc:build` = compilation/packaging only
 - `/sc:implement` = feature implementation (NEW!)
 
 **Migration**: Replace `v2 /build myFeature` with `v3 /sc:implement myFeature`
@@ -362,7 +362,7 @@ python3 -m SuperClaude install --help
 SuperClaude tries to enhance Claude Code through:
 
 1. **Framework Files** - Documentation installed to `~/.claude/` that guides how Claude responds
-2. **Slash Commands** - 16 specialized commands for different dev tasks  
+2. **Slash Commands** - 16 specialized commands for different dev tasks
 3. **MCP Servers** - External services that add extra capabilities (when they work!)
 4. **Smart Routing** - Attempts to pick the right tools and experts based on what you're doing
 
@@ -372,7 +372,7 @@ Most of the time it plays nicely with Claude Code's existing stuff. 🤝
 
 We're hoping to work on these things for the next version:
 - **Hooks System** - Event-driven stuff (removed from v3, trying to redesign it properly)
-- **MCP Suite** - More external tool integrations  
+- **MCP Suite** - More external tool integrations
 - **Better Performance** - Trying to make things faster and less buggy
 - **More Personas** - Maybe a few more domain specialists
 - **Cross-CLI Support** - Might work with other AI coding assistants
@@ -406,11 +406,48 @@ Provide insights into folder structure and contents.
 ```
 ```
 
-That's it! Your command is now available in Claude Code. 
+That's it! Your command is now available in Claude Code.
 
 📚 **For detailed instructions**, see:
 - [Custom Commands Developer Guide](Docs/custom-commands-guide.md)
 - [Command Format Specification](Docs/command-format-specification.md)
+
+## Using /sc:todo Efficiently 📝
+
+The `/sc:todo` command helps reformat your TODO.md file to make it more understandable for Claude Code. Here's how to use it effectively:
+
+### When to Use /sc:todo
+- When your TODO.md has unclear or poorly formatted tasks
+- Before starting work to organize your task list
+- After brainstorming to structure your ideas
+- When Claude Code struggles to understand your tasks
+
+### Basic Usage
+```bash
+# Reformat with default settings
+/sc:todo
+
+# Create high-level strategic tasks
+/sc:todo --high
+
+# Break down into detailed action items
+/sc:todo --low
+
+# Apply structured formatting with clear categories
+/sc:todo --structured --actionable
+```
+
+### Example Workflow
+1. **Write your tasks** in TODO.md (don't worry about formatting)
+2. **Run** `/sc:todo --structured --actionable` to reformat
+3. **Review** the reformatted tasks
+4. **Use** other commands like `/sc:implement` or `/sc:improve` to work on tasks
+
+### Tips for Better Results
+- Include context in your original TODO.md (e.g., "implement user auth" → "implement JWT-based user authentication for the REST API")
+- Group related tasks together
+- Use `/sc:todo --commands` to get command suggestions for each task
+- Combine flags for best results: `/sc:todo --low --actionable --commands`
 
 ## Configuration ⚙️
 
@@ -425,7 +462,7 @@ Most users probably won't need to change anything - it usually works okay out of
 Want to learn more? Check out our guides:
 
 - 📚 [**User Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/superclaude-user-guide.md) - Complete overview and getting started
-- 🛠️ [**Commands Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/commands-guide.md) - All 16 slash commands explained  
+- 🛠️ [**Commands Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/commands-guide.md) - All 16 slash commands explained
 - 🏳️ [**Flags Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/flags-guide.md) - Command flags and options
 - 🎭 [**Personas Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/personas-guide.md) - Understanding the persona system
 - 📦 [**Installation Guide**](https://github.com/hphuongdhsp/SuperClaude_Agents/blob/master/Docs/installation-guide.md) - Detailed installation instructions
@@ -436,7 +473,7 @@ These guides have more details than this README and are kept up to date.
 
 We welcome contributions! Areas where we could use help:
 - 🐛 **Bug Reports** - Let us know what's broken
-- 📝 **Documentation** - Help us explain things better  
+- 📝 **Documentation** - Help us explain things better
 - 🧪 **Testing** - More test coverage for different setups
 - 💡 **Ideas** - Suggestions for new features or improvements
 
@@ -447,7 +484,7 @@ The codebase is pretty straightforward Python + documentation files.
 ```
 SuperClaude/
 ├── setup.py               # pypi setup file
-├── SuperClaude/           # Framework files  
+├── SuperClaude/           # Framework files
 │   ├── Core/              # Behavior documentation (COMMANDS.md, FLAGS.md, etc.)
 │   ├── Commands/          # 16 slash command definitions
 │   └── Settings/          # Configuration files
@@ -459,7 +496,7 @@ SuperClaude/
 
 The v3 architecture focuses on:
 - **Simplicity** - Removed complexity that wasn't adding value
-- **Reliability** - Better installation and fewer breaking changes  
+- **Reliability** - Better installation and fewer breaking changes
 - **Modularity** - Pick only the components you want
 - **Performance** - Faster operations with smarter caching
 

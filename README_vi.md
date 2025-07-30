@@ -12,7 +12,7 @@ Một framework mở rộng Claude Code với các lệnh chuyên biệt, person
 ## SuperClaude là gì? 🤔
 
 SuperClaude cố gắng làm cho Claude Code hữu ích hơn cho công việc phát triển bằng cách thêm:
-- 🛠️ **16 lệnh chuyên biệt** cho các tác vụ phát triển thường gặp (một số hoạt động tốt hơn những cái khác!)
+- 🛠️ **17 lệnh chuyên biệt** cho các tác vụ phát triển thường gặp (một số hoạt động tốt hơn những cái khác!)
 - 🤖 **35 AI agents** với chuyên môn đặc biệt (đánh giá mã, kiến trúc, testing, v.v.)
 - 🎭 **Smart personas** thường chọn đúng chuyên gia cho các lĩnh vực khác nhau
 - 🔧 **Tích hợp MCP server** cho tài liệu, UI components và tự động hóa trình duyệt
@@ -26,7 +26,7 @@ SuperClaude cố gắng làm cho Claude Code hữu ích hơn cho công việc ph
 ✅ **Những gì hoạt động tốt:**
 - Bộ cài đặt (được viết lại từ đầu)
 - Framework cốt lõi với 9 tệp tài liệu
-- 16 slash commands cho các tác vụ phát triển khác nhau
+- 17 slash commands cho các tác vụ phát triển khác nhau
 - 35 AI agents chuyên biệt để hỗ trợ theo lĩnh vực
 - Tích hợp MCP server (Context7, Sequential, Magic, Playwright)
 - Trình cài đặt CLI thống nhất để thiết lập dễ dàng
@@ -40,12 +40,12 @@ SuperClaude cố gắng làm cho Claude Code hữu ích hơn cho công việc ph
 ## Tính năng chính ✨
 
 ### Lệnh 🛠️
-Chúng tôi tập trung vào 16 lệnh thiết yếu cho các tác vụ phổ biến nhất:
+Chúng tôi tập trung vào 17 lệnh thiết yếu cho các tác vụ phổ biến nhất:
 
-**Phát triển**: `/sc:implement`, `/sc:build`, `/sc:design`  
-**Phân tích**: `/sc:analyze`, `/sc:troubleshoot`, `/sc:explain`  
-**Chất lượng**: `/sc:improve`, `/sc:test`, `/sc:cleanup`  
-**Khác**: `/sc:document`, `/sc:git`, `/sc:estimate`, `/sc:task`, `/sc:index`, `/sc:load`, `/sc:spawn`
+**Phát triển**: `/sc:implement`, `/sc:build`, `/sc:design`
+**Phân tích**: `/sc:analyze`, `/sc:troubleshoot`, `/sc:explain`
+**Chất lượng**: `/sc:improve`, `/sc:test`, `/sc:cleanup`
+**Khác**: `/sc:document`, `/sc:git`, `/sc:estimate`, `/sc:task`, `/sc:todo`, `/sc:index`, `/sc:load`, `/sc:spawn`
 
 ### Smart Personas 🎭
 Các chuyên gia AI cố gắng tham gia khi chúng có vẻ phù hợp:
@@ -410,6 +410,43 @@ Xong! Lệnh của bạn giờ đã có sẵn trong Claude Code.
 - [Custom Commands Developer Guide](Docs/custom-commands-guide.md)
 - [Command Format Specification](Docs/command-format-specification.md)
 
+## Sử dụng /sc:todo hiệu quả 📝
+
+Lệnh `/sc:todo` giúp định dạng lại file TODO.md của bạn để Claude Code dễ hiểu hơn. Đây là cách sử dụng hiệu quả:
+
+### Khi nào nên dùng /sc:todo
+- Khi TODO.md của bạn có các tác vụ không rõ ràng hoặc định dạng kém
+- Trước khi bắt đầu làm việc để tổ chức danh sách tác vụ
+- Sau khi brainstorming để cấu trúc ý tưởng
+- Khi Claude Code gặp khó khăn trong việc hiểu các tác vụ của bạn
+
+### Cách sử dụng cơ bản
+```bash
+# Định dạng lại với cài đặt mặc định
+/sc:todo
+
+# Tạo các tác vụ chiến lược cấp cao
+/sc:todo --high
+
+# Chia nhỏ thành các hành động chi tiết
+/sc:todo --low
+
+# Áp dụng định dạng có cấu trúc với các danh mục rõ ràng
+/sc:todo --structured --actionable
+```
+
+### Quy trình làm việc ví dụ
+1. **Viết các tác vụ** của bạn trong TODO.md (đừng lo về định dạng)
+2. **Chạy** `/sc:todo --structured --actionable` để định dạng lại
+3. **Xem lại** các tác vụ đã được định dạng lại
+4. **Sử dụng** các lệnh khác như `/sc:implement` hoặc `/sc:improve` để làm việc với các tác vụ
+
+### Mẹo để có kết quả tốt hơn
+- Bao gồm ngữ cảnh trong TODO.md gốc (ví dụ: "implement user auth" → "triển khai xác thực người dùng dựa trên JWT cho REST API")
+- Nhóm các tác vụ liên quan lại với nhau
+- Sử dụng `/sc:todo --commands` để nhận gợi ý lệnh cho mỗi tác vụ
+- Kết hợp các flag để có kết quả tốt nhất: `/sc:todo --low --actionable --commands`
+
 ## Cấu hình ⚙️
 
 Sau khi cài đặt, bạn có thể tùy chỉnh SuperClaude bằng cách chỉnh sửa:
@@ -445,7 +482,7 @@ Codebase là Python khá đơn giản + các tệp tài liệu.
 ```
 SuperClaude/
 ├── setup.py               # pypi setup file
-├── SuperClaude/           # Framework files  
+├── SuperClaude/           # Framework files
 │   ├── Core/              # Behavior documentation (COMMANDS.md, FLAGS.md, etc.)
 │   ├── Commands/          # 16 slash command definitions
 │   └── Settings/          # Configuration files
