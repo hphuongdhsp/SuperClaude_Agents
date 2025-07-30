@@ -8,7 +8,7 @@ You don't need to learn all the commands, flags, and personas. Just start using 
 
 SuperClaude has an **intelligent routing system** that tries to figure out what you need:
 - Type `/analyze some-code/` → It picks the right analysis tools
-- Ask about security → Security expert auto-activates  
+- Ask about security → Security expert auto-activates
 - Work on frontend → UI specialist takes over
 - Debug something → Investigation mode kicks in
 
@@ -50,13 +50,13 @@ A comprehensive guide to understanding and using SuperClaude v3.0 effectively. B
 /sc:analyze README.md       # SuperClaude analyzes your project
 /sc:workflow feature-prd.md # Generate implementation workflow from PRD (NEW!)
 /sc:implement user-auth     # Create features and components (NEW in v3!)
-/sc:build                   # Smart build with auto-optimization  
+/sc:build                   # Smart build with auto-optimization
 /sc:improve messy-file.js   # Clean up code automatically
 ```
 
 **What just happened?** SuperClaude automatically:
 - Picked the right tools for each task 🛠️
-- Activated appropriate experts (security, performance, etc.) 🎭  
+- Activated appropriate experts (security, performance, etc.) 🎭
 - Applied intelligent flags and optimizations ⚡
 - Provided evidence-based suggestions 📊
 
@@ -81,12 +81,12 @@ SuperClaude makes Claude Code smarter for development work. Instead of generic r
 **🛠️ 17 Specialized Commands**
 - Planning tools: `/workflow` (NEW!), `/estimate`, `/task`
 - Development tools: `/implement`, `/build`, `/design`
-- Analysis tools: `/analyze`, `/troubleshoot`, `/explain` 
+- Analysis tools: `/analyze`, `/troubleshoot`, `/explain`
 - Quality tools: `/improve`, `/cleanup`, `/test`
 - Plus utilities for documentation, git, deployment, and more
 - **You just use them** - SuperClaude handles the complexity automatically
 - **NEW**: `/workflow` command for PRD-to-implementation planning
-- **NEW**: `/implement` command for feature creation (restores v2 functionality) 
+- **NEW**: `/implement` command for feature creation (restores v2 functionality)
 
 **🎭 11 Smart Personas** *(that know when to jump in)*
 - AI specialists that adapt behavior for different domains
@@ -145,7 +145,7 @@ We're pretty happy with v3 as a foundation, but there's definitely room for impr
 3. **Tool coordination** - Connects to external systems when helpful
 4. **Quality assurance** - Makes sure suggestions are solid
 
-**You don't see any of this complexity** - it just feels like Claude got way smarter about development stuff. 
+**You don't see any of this complexity** - it just feels like Claude got way smarter about development stuff.
 
 The nice thing is that most of this usually happens automatically. You make a request, SuperClaude tries to figure out a good approach, and executes with appropriate tools and expertise. Usually no configuration or setup needed - just hopefully better results. ✨
 
@@ -153,7 +153,7 @@ The nice thing is that most of this usually happens automatically. You make a re
 
 | Component | What It Does | Learn More *(optional!)* |
 |-----------|--------------|------------|
-| **Commands** | 15 specialized tools that auto-activate | [Commands Guide](commands-guide.md) |
+| **Commands** | 17 specialized tools that auto-activate | [Commands Guide](commands-guide.md) |
 | **Flags** | Modifiers that mostly activate automatically | [Flags Guide](flags-guide.md) |
 | **Personas** | 11 AI specialists that know when to help | [Personas Guide](personas-guide.md) |
 | **MCP Servers** | External integrations that connect when useful | [This guide](#core-components-🧩) |
@@ -178,7 +178,7 @@ Commands are specialized tools that handle specific types of development work. I
 - `/build` - Project building, compilation, bundling
 - `/design` - System architecture and component design
 
-**Analysis** 🔍  
+**Analysis** 🔍
 - `/analyze` - Comprehensive code and system analysis
 - `/troubleshoot` - Problem investigation and debugging
 - `/explain` - Educational explanations and learning
@@ -453,7 +453,7 @@ When introspection mode is active, you'll see these markers:
 
 **5-Level Adaptive Compression**:
 1. **Minimal** (0-40% usage): Full detail with persona-optimized clarity
-2. **Efficient** (40-70% usage): Balanced compression with domain awareness  
+2. **Efficient** (40-70% usage): Balanced compression with domain awareness
 3. **Compressed** (70-85% usage): Aggressive optimization with quality gates
 4. **Critical** (85-95% usage): Maximum compression preserving essential context
 5. **Emergency** (95%+ usage): Ultra-compression with information validation
@@ -469,7 +469,7 @@ When introspection mode is active, you'll see these markers:
 
 **Status & Progress**:
 - ✅ completed, passed
-- ❌ failed, error  
+- ❌ failed, error
 - ⚠️ warning
 - 🔄 in progress
 - 🎯 target, goal
@@ -594,7 +594,7 @@ The routing system uses dynamic decision trees to map detected patterns to optim
 ```
 **Orchestrator usually coordinates**:
 - 🏗️ architect persona (system design)
-- 🎨 frontend persona (UI design) 
+- 🎨 frontend persona (UI design)
 - Context7 MCP (framework patterns)
 - Sequential MCP (design methodology)
 
@@ -702,7 +702,7 @@ The orchestrator tries to optimize for good performance through several strategi
 
 **Quality Gates**: Performance-focused validation with benchmarking
 
-#### Example 3: Large Codebase Analysis  
+#### Example 3: Large Codebase Analysis
 ```bash
 /sc:analyze enterprise-monorepo/
 ```
@@ -967,7 +967,7 @@ Try these commands to see how SuperClaude automatically chooses the right tools:
 # Frontend work → frontend persona + Magic MCP
 /sc:build src/components/
 
-# Security analysis → security persona + Sequential MCP  
+# Security analysis → security persona + Sequential MCP
 /sc:analyze auth/ --focus security
 
 # Performance investigation → performance persona + Playwright MCP
@@ -986,7 +986,7 @@ When starting work on an unfamiliar project:
 /sc:load --deep --summary
 # → Gives overview of structure, dependencies, patterns
 
-# 2. Analyze architecture  
+# 2. Analyze architecture
 /sc:analyze --focus architecture
 # → 🏗️ architect persona provides system understanding
 
@@ -1008,14 +1008,14 @@ For developing new features:
 # → 🏗️ architect + 🎨 frontend personas coordinate
 
 # 2. Implementation
-/sc:build dashboard-components/ 
+/sc:build dashboard-components/
 # → 🎨 frontend persona + Magic MCP for UI generation
 
 # 3. Testing
 /sc:test --type e2e dashboard/
 # → 🧪 qa persona + Playwright MCP for testing
 
-# 4. Documentation  
+# 4. Documentation
 /sc:document dashboard/ --type api
 # → ✍️ scribe persona creates comprehensive docs
 ```
@@ -1068,7 +1068,7 @@ For improving existing code:
 ```bash
 # Development with security focus
 /sc:analyze --persona-security --focus security
-/sc:build --validate --safe-mode  
+/sc:build --validate --safe-mode
 /sc:test --type security
 /sc:git --persona-security --validate
 ```
@@ -1118,7 +1118,7 @@ For updating old codebases:
 /sc:analyze legacy/ --persona-architect --ultrathink
 # → Deep architectural analysis
 
-# Planning phase  
+# Planning phase
 /sc:design modernization-strategy --type architecture
 # → Comprehensive modernization plan
 
@@ -1141,7 +1141,7 @@ For projects spanning multiple technical domains:
 
 # Domain-specific improvements
 /sc:improve frontend/ --persona-frontend --magic
-/sc:improve backend/ --persona-backend --c7  
+/sc:improve backend/ --persona-backend --c7
 /sc:improve infrastructure/ --persona-devops --seq
 
 # Integration validation
@@ -1235,7 +1235,7 @@ Track what combinations work well for your specific needs:
 # Security-focused API development
 alias secure-api="/build api/ --persona-security --validate --c7"
 
-# Performance-optimized frontend work  
+# Performance-optimized frontend work
 alias perf-frontend="/build ui/ --persona-performance --magic --benchmark"
 
 # Quality improvement workflow
@@ -1277,7 +1277,7 @@ SuperClaude automatically coordinates components based on context. Here's how it
 - **Command**: `/build` handles compilation and bundling
 - **Persona**: 🎨 frontend auto-activates (React detected)
 - **MCP**: Magic provides modern UI components
-- **MCP**: Context7 provides React best practices 
+- **MCP**: Context7 provides React best practices
 - **Flags**: `--c7` auto-activates for framework docs
 
 **Result**: React-optimized build with modern components, accessibility checks, and performance optimization.
@@ -1322,7 +1322,7 @@ Sometimes you want to override auto-coordination for specific needs:
 # → Security analysis of UI components (XSS, data exposure, etc.)
 
 # Apply architectural thinking to small utility
-/sc:improve utility-function.js --persona-architect  
+/sc:improve utility-function.js --persona-architect
 # → Design patterns and extensibility for simple code
 ```
 
@@ -1345,7 +1345,7 @@ Sometimes you want to override auto-coordination for specific needs:
 ```bash
 # Sequential analysis with different personas
 /sc:analyze payment-system/ --persona-security     # Security view
-/sc:analyze payment-system/ --persona-performance  # Performance view  
+/sc:analyze payment-system/ --persona-performance  # Performance view
 /sc:analyze payment-system/ --persona-architect    # Architecture view
 
 # Or coordinate automatically
@@ -1368,7 +1368,7 @@ Flags work together to create powerful combinations:
 # → Multi-stage improvements + safety checks + validation gates
 ```
 
-#### Performance-Optimized Patterns  
+#### Performance-Optimized Patterns
 ```bash
 # Fast execution for large operations
 /sc:analyze huge-project/ --uc --no-mcp --scope module
@@ -1386,7 +1386,7 @@ Flags work together to create powerful combinations:
 # → Educational approach + detailed explanations + official docs
 
 # Deep understanding with transparency
-/sc:analyze mysterious-code/ --persona-analyzer --think-hard --introspect  
+/sc:analyze mysterious-code/ --persona-analyzer --think-hard --introspect
 # → Investigation methodology + deep analysis + thinking transparency
 ```
 
@@ -1438,14 +1438,14 @@ Personas automatically collaborate on complex requests:
 - ⚙️ backend: API implementation patterns
 - Result: Secure, scalable API design
 
-#### Frontend + Performance  
+#### Frontend + Performance
 ```bash
 /sc:build dashboard --focus performance
 ```
 **Persona collaboration**:
 - 🎨 frontend: UI/UX and accessibility
 - ⚡ performance: Optimization and metrics
-- 🏗️ architect: Component architecture  
+- 🏗️ architect: Component architecture
 - Result: Fast, accessible, well-structured dashboard
 
 #### Quality + Refactoring
@@ -1469,7 +1469,7 @@ For complex multi-stage operations:
 
 **Wave coordination**:
 1. **Analysis Wave**: 🔍 analyzer + Sequential assess current state
-2. **Planning Wave**: 🏗️ architect + Context7 design improvements  
+2. **Planning Wave**: 🏗️ architect + Context7 design improvements
 3. **Implementation Wave**: Appropriate specialists + tools implement changes
 4. **Validation Wave**: 🧪 qa + Playwright verify improvements
 5. **Optimization Wave**: ⚡ performance + metrics optimize results
@@ -1510,7 +1510,7 @@ SuperClaude adapts coordination based on context:
 # → Minimal tooling for simple tasks
 
 # Wrong persona activated
-/sc:analyze backend-api/ --persona-security  
+/sc:analyze backend-api/ --persona-security
 # → Override with explicit persona choice
 
 # Not enough analysis depth
@@ -1574,7 +1574,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 ```
 **What happens**:
 - 🔍 analyzer persona activates (investigation needed)
-- Sequential MCP structures the analysis  
+- Sequential MCP structures the analysis
 - Context7 MCP identifies framework patterns
 - Creates comprehensive project overview
 
@@ -1634,7 +1634,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 **Output**: Detailed security analysis with threat assessment and vulnerability prioritization.
 
-#### Step 2: Root Cause Investigation  
+#### Step 2: Root Cause Investigation
 ```bash
 /sc:troubleshoot "JWT token exposure in logs" --think --seq
 ```
@@ -1663,7 +1663,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 /sc:test auth-system/ --type security --play
 ```
 **What happens**:
-- 🧪 qa persona provides testing expertise  
+- 🧪 qa persona provides testing expertise
 - Playwright MCP executes security testing scenarios
 - Tests authentication flows, session management, and access controls
 - Validates security improvements are working
@@ -1904,7 +1904,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Trust Auto-Activation First
 ```bash
 # Let SuperClaude choose tools
-/sc:analyze auth-system/  
+/sc:analyze auth-system/
 # → Watch what auto-activates (likely security persona + validation)
 
 # Then experiment with manual control
@@ -1919,7 +1919,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 # See what would happen first
 /sc:improve messy-code.js --preview
 
-# Apply changes safely  
+# Apply changes safely
 /sc:improve messy-code.js --safe-mode
 
 # For critical code, use both
@@ -1952,7 +1952,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 # Safe improvement workflow
 /sc:improve --preview → /improve --safe-mode → /test --coverage
 
-# Deep investigation workflow  
+# Deep investigation workflow
 /sc:troubleshoot issue --think --seq → /analyze affected-code/ --focus quality
 
 # Learning and documentation workflow
@@ -1985,7 +1985,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 ```bash
 # These will automatically get the right persona
 /sc:build react-components/     # → frontend persona
-/sc:scan auth/ --focus security # → security persona  
+/sc:scan auth/ --focus security # → security persona
 /sc:troubleshoot slow-api/      # → performance + analyzer personas
 ```
 
@@ -2006,7 +2006,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 # Planning phase
 /sc:design new-feature --persona-architect
 
-# Implementation phase  
+# Implementation phase
 /sc:build feature/ --persona-frontend  # or backend, etc.
 
 # Testing phase
@@ -2022,7 +2022,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 
 #### Understand When Each Server Helps
 - **Context7**: When working with frameworks, libraries, or need official documentation
-- **Sequential**: For complex debugging, systematic analysis, or architectural decisions  
+- **Sequential**: For complex debugging, systematic analysis, or architectural decisions
 - **Magic**: For UI component generation, design systems, or frontend development
 - **Playwright**: For testing, performance measurement, or browser automation
 
@@ -2063,7 +2063,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 ```bash
 # ✅ Efficient: Related operations together
 /sc:analyze auth-system/ --focus security
-/sc:improve auth-system/ --focus security --safe-mode  
+/sc:improve auth-system/ --focus security --safe-mode
 /sc:test auth-system/ --type security
 
 # ❌ Inefficient: Scattered operations
@@ -2130,7 +2130,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sc:improve --safe-mode     # Apply improvements
 /sc:test --coverage         # Validate changes
 
-# ❌ Inefficient sequence  
+# ❌ Inefficient sequence
 /sc:analyze file1.js
 /sc:analyze file2.js        # Duplicate setup
 /sc:analyze file3.js        # Lost optimization opportunities
@@ -2172,7 +2172,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 ```bash
 # Commands that provide evidence
 /sc:analyze --focus performance  # → Performance metrics
-/sc:test --coverage             # → Coverage reports  
+/sc:test --coverage             # → Coverage reports
 /sc:scan --focus security       # → Security assessment
 
 # Use introspection for complex decisions
@@ -2232,7 +2232,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 # ❌ Overkill for simple tasks
 /sc:analyze simple-utility.js --ultrathink --all-mcp --wave-mode force
 
-# ✅ Appropriate for simple tasks  
+# ✅ Appropriate for simple tasks
 /sc:analyze simple-utility.js --focus quality
 ```
 
@@ -2393,7 +2393,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 
 **Flag Precedence Order**:
 1. Safety flags (`--safe-mode`) > optimization flags
-2. Explicit flags > auto-activation  
+2. Explicit flags > auto-activation
 3. `--no-mcp` overrides all individual MCP flags
 4. Last specified persona wins
 5. Scope: system > project > module > file
@@ -2724,7 +2724,7 @@ SuperClaude v3.0 is fresh out of beta, and we're honest about what that means: i
 
 **Performance Optimization**
 - Some operations are slower than we'd like, especially with all MCP servers active
-- Token usage could be more efficient for large-scale operations  
+- Token usage could be more efficient for large-scale operations
 - Memory usage spikes on very large codebases (>1000 files)
 
 **MCP Server Integration**
@@ -2767,7 +2767,7 @@ Our immediate focus is making v3 stable and polished:
 
 **Expected Impact**: 30-50% performance improvement for common operations.
 
-#### MCP Server Reliability (v3.2)  
+#### MCP Server Reliability (v3.2)
 - **Connection Resilience**: Better handling of MCP server timeouts and failures
 - **Graceful Degradation**: Fallback strategies when servers are unavailable
 - **Health Monitoring**: Real-time monitoring of MCP server status
@@ -2995,7 +2995,7 @@ The best approach to SuperClaude is progressive:
 #### Human-AI Collaboration
 SuperClaude is designed to augment human expertise, not replace it:
 - **You provide context and goals** - SuperClaude provides execution and expertise
-- **You make decisions** - SuperClaude provides evidence and recommendations  
+- **You make decisions** - SuperClaude provides evidence and recommendations
 - **You understand your constraints** - SuperClaude respects and works within them
 - **You own the outcomes** - SuperClaude helps you achieve better results
 
@@ -3014,7 +3014,7 @@ The framework gets better through:
 - Enhanced quality gates providing more actionable feedback
 - Better documentation based on user questions and feedback
 
-#### Medium-Term (6-18 Months)  
+#### Medium-Term (6-18 Months)
 - Redesigned hooks system with better architecture and performance
 - Smarter auto-activation based on learning from usage patterns
 - Extended MCP ecosystem with community-contributed servers
@@ -3042,7 +3042,7 @@ Whether you use SuperClaude occasionally for specific tasks or integrate it deep
 
 ---
 
-*Last updated: July 2024*  
+*Last updated: July 2024*
 *SuperClaude v3.0 User Guide*
 
 *For questions, feedback, or contributions, visit our GitHub repository or join the community discussions. We're always happy to hear from users and learn about your experiences with the framework.*
