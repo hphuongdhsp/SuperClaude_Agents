@@ -62,14 +62,62 @@ AI specialists that try to jump in when they seem relevant:
 *(They don't always pick perfectly, but usually get it right!)*
 
 ### AI Agents 🤖
-35 specialized agents for specific tasks and domains:
-- **Development**: `ai-engineer`, `backend-architect`, `frontend-developer`, `golang-pro`, `python-pro`
-- **Code Quality**: `code-reviewer`, `code-refactorer`, `debugger`, `test-automator`
-- **Infrastructure**: `cloud-architect`, `deployment-engineer`, `devops-troubleshooter`
-- **Specialized**: `data-scientist`, `ml-engineer`, `security-auditor`, `performance-engineer`
-- **Documentation**: `api-documenter`, `content-writer`, `prompt-engineer`
+Comprehensive collection of specialized agents organized by department for rapid development workflows:
 
-Each agent has unique expertise, tool preferences, and approaches. See [Docs/agents-guide.md](Docs/agents-guide.md) for details.
+#### Engineering Department (`engineering/`)
+- **ai-engineer** - Integrate AI/ML features that actually ship
+- **backend-architect** - Design scalable APIs and server systems
+- **devops-automator** - Deploy continuously without breaking things
+- **frontend-developer** - Build blazing-fast user interfaces
+- **mobile-app-builder** - Create native iOS/Android experiences
+- **rapid-prototyper** - Build MVPs in days, not weeks
+- **test-writer-fixer** - Write tests that catch real bugs
+
+#### Design Department (`design/`)
+- **brand-guardian** - Keep visual identity consistent everywhere
+- **ui-designer** - Design interfaces developers can actually build
+- **ux-researcher** - Turn user insights into product improvements
+- **visual-storyteller** - Create visuals that convert and share
+- **whimsy-injector** - Add delight to every interaction
+
+#### Marketing Department (`marketing/`)
+- **app-store-optimizer** - Dominate app store search results
+- **content-creator** - Generate content across all platforms
+- **growth-hacker** - Find and exploit viral growth loops
+- **instagram-curator** - Master the visual content game
+- **reddit-community-builder** - Win Reddit without being banned
+- **tiktok-strategist** - Create shareable marketing moments
+- **twitter-engager** - Ride trends to viral engagement
+
+#### Product Department (`product/`)
+- **feedback-synthesizer** - Transform complaints into features
+- **sprint-prioritizer** - Ship maximum value in 6 days
+- **trend-researcher** - Identify viral opportunities
+
+#### Project Management (`project-management/`)
+- **experiment-tracker** - Data-driven feature validation
+- **project-shipper** - Launch products that don't crash
+- **studio-producer** - Keep teams shipping, not meeting
+
+#### Studio Operations (`studio-operations/`)
+- **analytics-reporter** - Turn data into actionable insights
+- **finance-tracker** - Keep the studio profitable
+- **infrastructure-maintainer** - Scale without breaking the bank
+- **legal-compliance-checker** - Stay legal while moving fast
+- **support-responder** - Turn angry users into advocates
+
+#### Testing & Benchmarking (`testing/`)
+- **api-tester** - Ensure APIs work under pressure
+- **performance-benchmarker** - Make everything faster
+- **test-results-analyzer** - Find patterns in test failures
+- **tool-evaluator** - Choose tools that actually help
+- **workflow-optimizer** - Eliminate workflow bottlenecks
+
+#### Bonus Agents
+- **studio-coach** - Rally the AI troops to excellence
+- **joker** - Lighten the mood with tech humor
+
+Each agent has unique expertise, tool preferences, and approaches optimized for 6-day development cycles. See [Docs/agents-guide.md](Docs/agents-guide.md) for complete details.
 
 ### MCP Integration 🔧
 External tools that connect when useful:
