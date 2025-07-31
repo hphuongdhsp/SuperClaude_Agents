@@ -78,27 +78,6 @@ Các công cụ bên ngoài kết nối khi hữu ích:
 
 *(Những cái này hoạt động khá tốt khi chúng kết nối đúng cách! 🤞)*
 
-## ⚠️ Nâng cấp từ v2? Quan trọng!
-
-Nếu bạn đang đến từ SuperClaude v2, bạn cần dọn dẹp trước:
-
-1. **Gỡ cài đặt v2** sử dụng trình gỡ cài đặt nếu có
-2. **Dọn dẹp thủ công** - xóa những cái này nếu chúng tồn tại:
-   - `SuperClaude/`
-   - `~/.claude/shared/`
-   - `~/.claude/commands/`
-   - `~/.claude/CLAUDE.md`
-3. **Sau đó tiến hành** với cài đặt v3 bên dưới
-
-Điều này là do v3 có cấu trúc khác và các tệp cũ có thể gây xung đột.
-
-### 🔄 **Thay đổi chính cho người dùng v2**
-**Lệnh `/build` đã thay đổi!** Trong v2, `/build` được sử dụng để triển khai tính năng. Trong v3:
-- `/sc:build` = chỉ biên dịch/đóng gói
-- `/sc:implement` = triển khai tính năng (MỚI!)
-
-**Di chuyển**: Thay thế `v2 /build myFeature` bằng `v3 /sc:implement myFeature`
-
 ## Cài đặt 📦
 
 Cài đặt SuperClaude là một **quy trình hai bước**:
