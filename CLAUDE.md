@@ -20,7 +20,7 @@ uv sync
 
 # Run the installer (any of these work)
 python3 -m SuperClaude install
-python3 SuperClaude install  
+python3 SuperClaude install
 SuperClaude install
 
 # Other operations
@@ -46,19 +46,30 @@ python3 -m SuperClaude install --dry-run
 ### Core Framework Structure
 The SuperClaude framework consists of several interconnected systems:
 
-1. **Command System** (`SuperClaude/Commands/`): 16 specialized slash commands for development tasks. Commands use a prefix `/sc:` to avoid conflicts. Each command has metadata specifying allowed tools and descriptions.
+1. **Command System** (`SuperClaude/Commands/`): 17 specialized slash commands for development tasks. Commands use a prefix `/sc:` to avoid conflicts. Each command has metadata specifying allowed tools and descriptions.
 
 2. **Persona System** (`SuperClaude/Core/PERSONAS.md`): 11 domain-specific AI personalities that auto-activate based on context. Each persona has unique priorities, MCP server preferences, and quality standards.
 
-3. **MCP Server Integration** (`SuperClaude/Core/MCP.md`): Integration with external Model Context Protocol servers:
+3. **Agent System** (`SuperClaude/Agents/`): 38 specialized AI agents organized by department:
+   - Engineering (7): ai-engineer, backend-architect, devops-automator, frontend-developer, mobile-app-builder, rapid-prototyper, test-writer-fixer
+   - Design (5): brand-guardian, ui-designer, ux-researcher, visual-storyteller, whimsy-injector
+   - Marketing (7): app-store-optimizer, content-creator, growth-hacker, instagram-curator, reddit-community-builder, tiktok-strategist, twitter-engager
+   - Product (3): feedback-synthesizer, sprint-prioritizer, trend-researcher
+   - Project Management (5): experiment-tracker, project-shipper, studio-producer, prd-writer, project-task-planner
+   - Studio Operations (5): analytics-reporter, finance-tracker, infrastructure-maintainer, legal-compliance-checker, support-responder
+   - Testing (5): api-tester, performance-benchmarker, test-results-analyzer, tool-evaluator, workflow-optimizer
+   - Financial (3): kols, reporter, trump
+   - Bonus (2): studio-coach, joker
+
+4. **MCP Server Integration** (`SuperClaude/Core/MCP.md`): Integration with external Model Context Protocol servers:
    - Context7: Library documentation and patterns
    - Sequential: Complex multi-step analysis
    - Magic: UI component generation
    - Playwright: Browser automation and testing
 
-4. **Orchestrator** (`SuperClaude/Core/ORCHESTRATOR.md`): Intelligent routing system that analyzes requests and determines optimal tool combinations, persona activation, and execution strategies. Includes wave orchestration for complex multi-stage operations.
+5. **Orchestrator** (`SuperClaude/Core/ORCHESTRATOR.md`): Intelligent routing system that analyzes requests and determines optimal tool combinations, persona activation, and execution strategies. Includes wave orchestration for complex multi-stage operations.
 
-5. **Installation System** (`setup/`): Modular component-based installer with:
+6. **Installation System** (`setup/`): Modular component-based installer with:
    - Component registry for dynamic discovery
    - Dependency resolution
    - Multi-profile support (quick, minimal, developer)
@@ -89,6 +100,20 @@ The SuperClaude framework consists of several interconnected systems:
 3. `SuperClaude/Core/CLAUDE.md`: Entry point that references all framework documentation
 4. `setup/base/installer.py`: Base installer class with component management
 5. `setup/core/registry.py`: Component discovery and management system
+
+## Recently Added Agents
+
+### Financial Analysis Agents
+- **kols**: Monitors and analyzes insights from global financial thought leaders on X (Twitter). Tracks KOLs like Ray Dalio, Lyn Alden, and others to extract actionable intelligence on macro trends, monetary policy shifts, and capital flow patterns. Particularly useful for contextualizing global trends for specific markets like Vietnam.
+
+- **reporter**: Generates comprehensive equity research reports for Vietnamese listed companies (HOSE, HNX, UPCOM). Produces detailed company research reports analyzing fundamentals, valuation, and investment thesis, saved to `/reports/{TICKER}_research_{YYYYMMDD}.md`. Includes financial performance analysis, valuation comparisons, and investment recommendations.
+
+- **trump**: Monitors and analyzes Donald Trump's policy announcements, executive orders, tariffs, and bills that could impact global markets and Vietnam. Tracks X (Twitter), news sources, and key opinion leaders to provide real-time analysis of Trump administration policies and their implications for trade, FDI flows, and currency markets.
+
+### Project Management Agents
+- **prd-writer**: Creates comprehensive Product Requirements Documents (PRDs) for software projects. Generates structured documentation including business goals, user personas, functional requirements, user experience flows, success metrics, technical considerations, and user stories following best practices for product management.
+
+- **project-task-planner**: Analyzes PRDs and generates detailed, structured task lists covering all aspects of software development from initial setup through deployment and maintenance. Creates comprehensive development plans with tasks organized by phase (setup, backend, frontend, integration, testing, documentation, deployment, maintenance).
 
 ## Development Guidelines
 

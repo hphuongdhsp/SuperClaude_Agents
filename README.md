@@ -16,7 +16,7 @@ A framework that extends Claude Code with specialized commands, personas, and MC
 SuperClaude v3 is an advanced framework that transforms Claude Code into a comprehensive AI-driven development platform by adding:
 
 - 🛠️ **17 Specialized Commands** (`/sc:` prefix) - From analysis to implementation, each command is optimized for specific development tasks
-- 🤖 **35 Domain-Specific AI Agents** - Expert agents organized by department (Engineering, Design, Marketing, etc.) for rapid 6-day development cycles
+- 🤖 **38 Domain-Specific AI Agents** - Expert agents organized by department (Engineering, Design, Marketing, etc.) for rapid 6-day development cycles
 - 🎭 **11 Intelligent Personas** - Auto-activated AI personalities that adapt based on context (architect, frontend, backend, security, etc.)
 - 🔧 **4 MCP Server Integrations** - External intelligence amplification through Context7 (docs), Sequential (analysis), Magic (UI), and Playwright (testing)
 - 🌊 **Wave Orchestration Engine** - Multi-stage execution for complex operations with compound intelligence
@@ -32,7 +32,7 @@ This framework represents a paradigm shift in AI-assisted development, enabling 
 - Installation suite (rewritten from the ground up)
 - Core framework with 9 documentation files
 - 17 slash commands for various development tasks
-- 35 specialized AI agents for domain-specific assistance
+- 38 specialized AI agents for domain-specific assistance
 - MCP server integration (Context7, Sequential, Magic, Playwright)
 - Unified CLI installer for easy setup
 
@@ -138,6 +138,8 @@ Comprehensive collection of specialized agents organized by department for rapid
 - **experiment-tracker** - Data-driven feature validation
 - **project-shipper** - Launch products that don't crash
 - **studio-producer** - Keep teams shipping, not meeting
+- **prd-writer** - Create comprehensive Product Requirements Documents
+- **project-task-planner** - Generate detailed development task lists from PRDs
 
 #### Studio Operations (`studio-operations/`)
 - **analytics-reporter** - Turn data into actionable insights
@@ -145,6 +147,11 @@ Comprehensive collection of specialized agents organized by department for rapid
 - **infrastructure-maintainer** - Scale without breaking the bank
 - **legal-compliance-checker** - Stay legal while moving fast
 - **support-responder** - Turn angry users into advocates
+
+#### Financial Analysis (`financial/`)
+- **kols** - Monitor and analyze insights from global financial thought leaders
+- **reporter** - Generate comprehensive equity research reports for Vietnamese stocks
+- **trump** - Track and analyze Trump administration policies and market impacts
 
 #### Testing & Benchmarking (`testing/`)
 - **api-tester** - Ensure APIs work under pressure
@@ -474,7 +481,7 @@ Quality Gates & Validation
 |---------|----|----|-------------|
 | Commands | 14 basic | 17 specialized with `/sc:` | Better organization, no conflicts |
 | Personas | 5 basic | 11 domain experts | Auto-activation, priority system |
-| Agents | None | 35 specialized | Department-based organization |
+| Agents | None | 38 specialized | Department-based organization |
 | MCP Servers | 2 | 4 integrated | Context7, Sequential, Magic, Playwright |
 | Wave Orchestration | No | Yes | Multi-stage complex operations |
 | Token Optimization | Basic | Advanced (30-50%) | Symbol system, compression |
@@ -725,14 +732,15 @@ SuperClaude_Agents/
 │   │   ├── implement.md      # Feature implementation
 │   │   ├── build.md          # Project building
 │   │   └── ... (14 more)
-│   ├── Agents/               # 35 specialized agents
+│   ├── Agents/               # 38 specialized agents
 │   │   ├── engineering/      # 7 engineering agents
 │   │   ├── design/           # 5 design agents
 │   │   ├── marketing/        # 7 marketing agents
 │   │   ├── product/          # 3 product agents
-│   │   ├── project-mgmt/     # 3 PM agents
+│   │   ├── project-mgmt/     # 5 PM agents
 │   │   ├── studio-ops/       # 5 operations agents
 │   │   ├── testing/          # 5 testing agents
+│   │   ├── financial/        # 3 financial agents
 │   │   └── bonus/            # 2 special agents
 │   └── Settings/             # Configuration
 ├── setup/                    # Installation system
