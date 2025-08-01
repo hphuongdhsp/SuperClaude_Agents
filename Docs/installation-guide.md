@@ -1,21 +1,53 @@
-# SuperClaude Installation Guide 📦
+# SuperClaude v3 Installation Guide 📦
 
-## 🎯 It's Easier Than It Looks!
+> **Framework Version**: SuperClaude v3
+> **Last Updated**: Today
+> **Estimated Time**: 2-5 minutes
 
-**The honest truth**: This guide looks long because we want to cover all the details, but installation is actually pretty simple. Most people are done in 2 minutes with one command! 
+## 🎯 Quick Start (Most Users)
 
-### Step 1: Install the Package
+**For 90% of users**, installation is just one command:
 
-**Option A: From PyPI (Recommended)**
+```bash
+# Using Python
+python3 -m SuperClaude install
+
+# Or if SuperClaude is in PATH
+SuperClaude install
+```
+
+That's it! The installer will handle everything else. Keep reading for advanced options and details.
+
+## 📋 Installation Methods
+
+### Method 1: Package Manager Installation (Recommended)
+
+**Using UV (Modern Python Package Manager)**
 ```bash
 uv add SuperClaude
 ```
 
-**Option B: From Source**
+**Using PIP (Traditional)**
 ```bash
-git clone https://github.com/NomenAK/SuperClaude.git
-cd SuperClaude
+pip install SuperClaude
+```
+
+**Using UVX (Cross-platform)**
+```bash
+uvx pip install SuperClaude
+```
+
+### Method 2: From Source (Development)
+```bash
+git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
+cd SuperClaude_Framework
 uv sync
+```
+
+### Method 3: Direct Download
+```bash
+# Download and run installer
+curl -L https://superclaude.com/install.sh | bash
 ```
 ### 🔧 UV / UVX Setup Guide
 
@@ -76,33 +108,88 @@ If you’re using `uvx`, just run:
 uvx pip install SuperClaude
 ```
 
-### ✅ Finish Installation
+## 🚀 Running the Installer
 
-After installing, continue with the usual installer step:
+After package installation, run the SuperClaude installer:
 
+### Primary Method
 ```bash
 python3 -m SuperClaude install
 ```
 
-Or using bash-style CLI:
-
+### Alternative Methods
 ```bash
+# If SuperClaude is in PATH
 SuperClaude install
+
+# Direct Python execution
+python3 SuperClaude install
 ```
 
-### 🧠 Note:
+## 🏗️ Component Architecture (New in v3)
 
-* `uv` provides better caching and performance.
-* Compatible with Python 3.8+ and works smoothly with SuperClaude.
+SuperClaude v3 uses a modular component system:
 
----
+### Core Components
+- **Core**: Framework fundamentals (CLAUDE.md, RULES.md, etc.)
+- **Commands**: 17 `/sc:` prefixed commands
+- **Agents**: 38 specialized AI agents across 8 departments
+- **Personas**: 11 domain-specific personalities
+- **MCP**: Model Context Protocol server configs
+- **Hooks**: Git hooks and automation scripts
 
-### ⚠️ Important Note 
-**After installing the SuperClaude.**
-**You can use `SuperClaude commands`
-, `python3 -m SuperClaude commands` or also `python3 SuperClaude commands`**
+### Component Management
+```bash
+# List installed components
+SuperClaude list
 
-**What just happened?** SuperClaude tried to set up everything you need. Usually no complex configuration, dependency hunting, or setup headaches! 🎉
+# Add specific component
+SuperClaude add agents
+
+# Update all components
+SuperClaude update
+
+# Remove component
+SuperClaude remove hooks
+```
+
+## 🔄 Rollback Support (New in v3)
+
+SuperClaude v3 includes automatic backup and rollback:
+
+```bash
+# Create manual backup
+SuperClaude backup
+
+# List available backups
+SuperClaude backup --list
+
+# Restore from backup
+SuperClaude restore --timestamp 2025-02-01_10-30-00
+
+# Automatic rollback on failure
+# (happens automatically during installation errors)
+```
+
+## 🔒 Security Features (New in v3)
+
+SuperClaude v3 includes enhanced security:
+
+### Path Validation
+- Installation restricted to user home directory
+- Prevents path traversal attacks
+- Validates all file operations
+
+### Component Verification
+- Checksums for all components
+- Digital signatures (coming soon)
+- Dependency validation
+
+### Safe Mode Installation
+```bash
+python3 -m SuperClaude install --safe --dry-run
+# Preview changes without modifying system
+```
 
 ---
 
@@ -146,7 +233,7 @@ If any of these fail, see the [Prerequisites Setup](#prerequisites-setup-🛠️
 ```bash
 pip install SuperClaude
 
-# Install with recommended settings  
+# Install with recommended settings
 SuperClaude install --quick
 
 # That's it! 🎉
@@ -158,7 +245,7 @@ git clone <repository-url>
 cd SuperClaude
 pip install .
 
-# Install with recommended settings  
+# Install with recommended settings
 SuperClaude install --quick
 
 # That's it! 🎉
@@ -191,7 +278,7 @@ SuperClaude install --minimal
 ```
 - **What**: Just the core framework files
 - **Time**: ~1 minute
-- **Space**: ~20MB  
+- **Space**: ~20MB
 - **Good for**: Testing, basic enhancement, minimal setups
 - **Includes**: Core behavior documentation that guides Claude
 
@@ -205,7 +292,7 @@ SuperClaude install --quick
 - **Good for**: Most users, general development
 - **Includes**: Everything in minimal + specialized commands like `/analyze`, `/build`, `/improve`
 
-### 🔧 Developer Installation  
+### 🔧 Developer Installation
 ```bash
 SuperClaude install --profile developer
 ```
@@ -232,7 +319,7 @@ SuperClaude install
 # Linux (Ubuntu/Debian)
 sudo apt update && sudo apt install python3 python3-pip
 
-# macOS  
+# macOS
 brew install python3
 
 # Windows
@@ -253,7 +340,7 @@ sudo apt update && sudo apt install nodejs npm
 # macOS
 brew install node
 
-# Windows  
+# Windows
 # Download from https://nodejs.org/
 #or open command prompt or powershell
 winget install nodejs
@@ -346,7 +433,7 @@ SuperClaude installs to `~/.claude/` by default. Here's what you'll find:
 ```
 ~/.claude/
 ├── CLAUDE.md              # Main framework entry point
-├── COMMANDS.md             # Available slash commands  
+├── COMMANDS.md             # Available slash commands
 ├── FLAGS.md                # Command flags and options
 ├── PERSONAS.md             # Smart persona system
 ├── PRINCIPLES.md           # Development principles
@@ -414,7 +501,7 @@ Create backups before major changes:
 # Create a backup
 SuperClaude backup --create
 
-# List existing backups  
+# List existing backups
 SuperClaude backup --list
 
 # Restore from backup
@@ -446,7 +533,7 @@ SuperClaude uninstall --dry-run
 ```
 
 **What gets removed:**
-- All files in `~/.claude/` 
+- All files in `~/.claude/`
 - MCP server configurations
 - SuperClaude settings from Claude Code
 
@@ -484,7 +571,7 @@ ls -la ~/.claude/
 
 **"MCP servers won't install"**
 - Check that Node.js is installed: `node --version`
-- Check that npm is available: `npm --version`  
+- Check that npm is available: `npm --version`
 - Try installing without MCP first: `--minimal` or `--quick`
 
 **"Installation fails partway through"**
@@ -503,7 +590,7 @@ SuperClaude install --quick --dry-run
 - Run Command Prompt as Administrator if you get permission errors
 - Make sure Python is in your PATH
 
-**macOS:**  
+**macOS:**
 - You might need to approve SuperClaude in Security & Privacy settings
 - Use `brew install python3` if you don't have Python 3.8+
 - Try using `python3` explicitly instead of `python`
@@ -597,7 +684,7 @@ SuperClaude install --profile developer --dev-hooks
 - **Works alongside existing tools** - doesn't interfere with your setup
 - **Easy to uninstall** if you change your mind
 - **Community supported** - we actually read and respond to issues
-- ### ⚠️ Important Note 
+- ### ⚠️ Important Note
 **After installing the SuperClaude.**
 **You can use `SuperClaude commands`
 , `python3 -m SuperClaude commands` or also `python3 SuperClaude commands`**
